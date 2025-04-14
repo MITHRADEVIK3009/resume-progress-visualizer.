@@ -1,0 +1,112 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    /* Dark theme specific variables */
+    --dark-background: 240 10% 7%;
+    --dark-foreground: 0 0% 95%;
+    --dark-primary: 250 69% 61%;
+    --dark-secondary: 240 3.7% 15.9%;
+    --dark-accent: 250 69% 76%;
+  }
+
+  .dark {
+    @apply bg-dark-900 text-dashboard-text-primary;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-dashboard-highlight/20 selection:text-dashboard-accent;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-900 text-white transition-colors duration-300 min-h-screen;
+  }
+}
+
+@layer utilities {
+  .dark-glassmorphism {
+    @apply backdrop-blur-xl bg-black/20 border border-white/10 shadow-dark-lg;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(155,135,245,0.5)] hover:-translate-y-1;
+  }
+  
+  .purple-gradient {
+    @apply bg-gradient-to-tr from-purple-900 via-purple-800 to-indigo-900;
+  }
+  
+  .purple-glow {
+    @apply shadow-[0_0_20px_rgba(155,135,245,0.3)];
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s infinite;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
